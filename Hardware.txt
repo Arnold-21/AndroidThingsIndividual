@@ -1,0 +1,4 @@
+Arduino UNO R3 CH340 - https://docs.arduino.cc/hardware/uno-rev3/
+High sensitivity sound detection module KY-037 - https://arduinomodules.info/ky-037-high-sensitivity-sound-detection-module/
+Photoresistor module KY-018 - https://arduinomodules.info/ky-018-photoresistor-module/
+RGB Led module KY-016 - https://arduinomodules.info/ky-016-rgb-full-color-led-module/

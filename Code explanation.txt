@@ -1,0 +1,33 @@
+//Reading the sound and light levels
+  soundValue = analogRead(soundPin);
+  lightValue = analogRead(lightPin); 
+
+  //Checking for a medium sound when the there isn't much of a light, basically something falling or a slight clap in the night
+  //The values were chosen from trial and error
+  if(soundValue > 480 && lightValue > 500)
+  {
+    //Make the rgb light red
+    analogWrite(PIN_RED, 255);
+    analogWrite(PIN_GREEN, 0);
+    analogWrite(PIN_BLUE, 0);
+    delay(750);
+  }
+  else
+  {
+    //Otherwise the rgb light should not be on
+    analogWrite(PIN_RED, 0);
+    analogWrite(PIN_GREEN, 0);
+    analogWrite(PIN_BLUE, 0);
+  }
+
+
+ - Firstly the program will read the sound analog values from the soundPin variable, in this case the A0 pin
+ - Than reads the analog ouptut of the light sensor the same way, in this case it is the A2 pin
+
+ - The values have been reached via trial and error, while calibrating the sound module's sensitivity and while checking the ouptu values of the light sensor
+ - In the case of the sound module, the sensitivity was configured, by turning the the controller anti-clock-wise to make more sensitive.
+ - Both outputs during testing have been printed to the Serial monitor, for readability
+
+ - If the if statement passes, meaning a sound has been made, bigger than the treshold, like a slight clap, something falling or something similar and it's nighttime
+	the rgb will turn on with a red light
+ - Otherwise the rgb is turned off, meaning no current through the pins

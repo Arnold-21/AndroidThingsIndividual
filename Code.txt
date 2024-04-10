@@ -1,0 +1,43 @@
+int soundPin = A0;
+int lightPin = A2;
+
+const int PIN_RED = 6;
+const int PIN_GREEN = 5;
+const int PIN_BLUE = 3;
+
+int lightValue; 
+int soundValue;
+
+void setup() {
+  //Setting up the pun outputs for the rgb light
+  pinMode(PIN_RED, OUTPUT);
+  pinMode(PIN_GREEN, OUTPUT);
+  pinMode(PIN_BLUE, OUTPUT);
+  
+  //Setting up the Serial monitor for outputs
+  Serial.begin(9600);
+}
+
+void loop() {
+  //Reading the sound and light levels
+  soundValue = analogRead(soundPin);
+  lightValue = analogRead(lightPin); 
+
+  //Checking for a medium sound when the there isn't much of a light, basically something falling or a slight clap in the night
+  //The values were chosen from trial and error
+  if(soundValue > 480 && lightValue > 500)
+  {
+    //Make the rgb light red
+    analogWrite(PIN_RED, 255);
+    analogWrite(PIN_GREEN, 0);
+    analogWrite(PIN_BLUE, 0);
+    delay(750);
+  }
+  else
+  {
+    //Otherwise the rgb light should not be on
+    analogWrite(PIN_RED, 0);
+    analogWrite(PIN_GREEN, 0);
+    analogWrite(PIN_BLUE, 0);
+  }
+}

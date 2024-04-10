@@ -1,0 +1,4 @@
+A simple arduino project, for detecting mild sounds in the nighttime.
+Three modules are connected to the arduino, a sound sensor, an rgb light module and a photoresistor module.
+The photoresistors are always powered on, sending constant reading about sound and light, if they reach a hardcoded threshold, meaning a mild sound in the night, the rgb light will turn on with a red light.
+Otherwise the rgb light remains turned off.
